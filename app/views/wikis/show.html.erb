@@ -1,2 +1,20 @@
 <h1>Wikis#show</h1>
 <p>Find me in app/views/wikis/show.html.erb</p>
+
+
+<div class="container">
+  <article>
+    <h1>
+      <%= @wiki.title %>
+      <small>
+        <%= link_to edit_wiki_path(@wiki) do %><i class="fa-regular fa-pen-to-square"></i><% end %>
+        <%= link_to wiki_path(@wiki), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+          <i class="fa-regular fa-trash-can"></i>
+        <% end %>
+      </small>
+    </h1>
+
+    <hr>
+    <%= @wiki.content %>
+  </article>
+</div>
