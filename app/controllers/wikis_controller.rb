@@ -1,6 +1,6 @@
 class WikisController < ApplicationController
   # givinf show, edit, update, destroy the Wiki.find code
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:edit, :update, :destroy]
 
   def index
     @wikis = Wiki.all
@@ -22,7 +22,9 @@ class WikisController < ApplicationController
   def edit
   end
 
+  # not sure why before action wouldn't work is set for show
   def show
+    @wiki = Wiki.find(params[:id])
   end
 
   def update
